@@ -116,7 +116,7 @@ Citizen.CreateThread(function()
             local EntityHealth = GetEntityHealth(vehicle)
             local maxEntityHealth = GetEntityMaxHealth(vehicle)
             local vehicleHealth = (EntityHealth / maxEntityHealth) * 100
-            --print(vehicleHealth)
+            
             SetPlayerVehicleDamageModifier(PlayerId(), 100)
             SetVehicleEngineHealth(vehicle, (EntityHealth + 0.00) * 1.5)
 

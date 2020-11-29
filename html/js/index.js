@@ -38,7 +38,7 @@ _messageBomb = {
         _$('#numSpeed').innerHTML = data.speed;
         _$('#gearNum').innerHTML = data.gear;
         _$('#placeName').innerHTML = data.streetName;
-        _$('#speedUnit').innerHTML = data.speedUnit
+        _$('#speedUnit').innerHTML = data.speedUnit;
     },
 
     toggleBelt: (data) => {
@@ -49,7 +49,7 @@ _messageBomb = {
          */
 
         if(!data.hasBelt) {
-            _$('#belt').style.display = "none"
+            _$('#belt').style.display = "none";
             return false;
         }
 
