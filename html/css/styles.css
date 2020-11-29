@@ -49,6 +49,7 @@ html, body {
     font-size: 14px;
     font-weight: 700;
     background-color: rgba(255, 0, 0, .4);
+    animation: fadeIn .5s;
 }
 
 .container-flex {
@@ -211,18 +212,34 @@ html, body {
     height: 100%;
 }
 
-#placeName {
+.placeName {
+    position: relative;
     margin: 3px auto 0 auto;
     padding: 3px 5px;
-    width: 340px;
     text-align: center;
     font-weight: 700;
     font-size: 14px;
     line-height: 14px;
     color: white;
+    white-space: nowrap;
+    transform: translateY(-5px);
+    animation: fadeIn .5s;
+}
+
+.placeName p {
+    margin: 0;
+}
+
+.placeName .bg {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    width: 340px;
+    height: 100%;
     background-color: rgba(0, 0, 0, .3);
     background: linear-gradient(to right, transparent, rgba(0, 0, 0, .5), transparent) !important;
-    transform: translateY(-5px);
+    z-index: -1;
 }
 
 @keyframes twink {

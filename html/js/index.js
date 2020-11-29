@@ -50,8 +50,6 @@ _messageBomb = {
 
         if(!data.hasBelt) {
             _$('#belt').style.display = "none"
-            _$('#txtNotice').style.display = "none";
-            _$('#mainGUI').style.height = "39px";
             return false;
         }
 
@@ -65,15 +63,11 @@ _messageBomb = {
             _$('#mainGUI').style.height = "39px";
             _$('#txtNotice').style.display = "none";
             _$('#belt').classList.add('active');
-            _$('#belt').getElementsByTagName('p')[0].innerHTML = "ON";
-            _$('#belt').getElementsByTagName('p')[0].style.paddingLeft = "7px";
         } else {
             // Deactive belt status.
             _$('#mainGUI').style.height = "";
             _$('#txtNotice').style.display = "";
             _$('#belt').classList.remove('active');
-            _$('#belt').getElementsByTagName('p')[0].innerHTML = "OFF";
-            _$('#belt').getElementsByTagName('p')[0].style.paddingLeft = "";
         }
     },
     
@@ -93,32 +87,18 @@ _messageBomb = {
         _$('#cruise').style.display = "";
 
         // Check cruise toggle and update ui.
-        if(data.cruiseStatus) {
-            // Active cruise status.
-            _$('#cruise').classList.add('active');
-            _$('#cruise').getElementsByTagName('p')[0].innerHTML = "ON";
-            _$('#cruise').getElementsByTagName('p')[0].style.paddingLeft = "10px";
-        } else {
-            // Deactive cruise status.
-            _$('#cruise').classList.remove('active');
-            _$('#cruise').getElementsByTagName('p')[0].innerHTML = "OFF";
-            _$('#cruise').getElementsByTagName('p')[0].style.paddingLeft = "";
-        }
+        if(data.cruiseStatus)
+            _$('#cruise').classList.add('active'); // Active cruise status.
+        else
+            _$('#cruise').classList.remove('active'); // Deactive cruise status.
     },
 
     toggleEngine: (isEngineOn) => {
         // Check if engine is started and update ui.
-        if(isEngineOn) {
-            // Active engine status.
-            _$('#engine').classList.add('active');
-            _$('#engine').getElementsByTagName('p')[0].innerHTML = "ON";
-            _$('#engine').getElementsByTagName('p')[0].style.paddingLeft = "3px";
-        } else {
-            // Deactive engine status.
-            _$('#engine').classList.remove('active');
-            _$('#engine').getElementsByTagName('p')[0].innerHTML = "OFF";
-            _$('#engine').getElementsByTagName('p')[0].style.paddingLeft = "";
-        }
+        if(isEngineOn)
+            _$('#engine').classList.add('active'); // Active engine status.
+        else
+            _$('#engine').classList.remove('active'); // Deactive engine status.
     }
 }
 
