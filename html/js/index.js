@@ -10,13 +10,13 @@ _messageBomb = {
         // Check UI toggle status.
         if(isShow) {
             // Remove old animation and show it on screen.
-            _$('allELM').style.animation = "";
-            _$('allELM').style.display = "block";
+            _$('#allELM').style.animation = "";
+            _$('#allELM').style.display = "block";
         } else {
             // Set fade out animation before hide element
-            _$('allELM').style.animation = "fadeOutDown .5s forwards";
+            _$('#allELM').style.animation = "fadeOutDown .5s forwards";
             setTimeout(() => {
-                _$('allELM').style.display = "";
+                _$('#allELM').style.display = "";
             }, 500);
         }
     },
@@ -33,12 +33,12 @@ _messageBomb = {
          * - The name of street where player is driving.
          */
 
-        _$('yeetHealth').style.width = data.carHealth + "%";
-        _$('yeetFuel').style.width = data.carFuel + "%";
-        _$('numSpeed').innerHTML = data.speed;
-        _$('gearNum').innerHTML = data.gear;
-        _$('placeName').innerHTML = data.streetName;
-        _$('placeName').innerHTML = data.speedUnit
+        _$('#yeetHealth').style.width = data.carHealth + "%";
+        _$('#yeetFuel').style.width = data.carFuel + "%";
+        _$('#numSpeed').innerHTML = data.speed;
+        _$('#gearNum').innerHTML = data.gear;
+        _$('#placeName').innerHTML = data.streetName;
+        _$('#speedUnit').innerHTML = data.speedUnit
     },
 
     toggleBelt: (data) => {
@@ -49,31 +49,31 @@ _messageBomb = {
          */
 
         if(!data.hasBelt) {
-            _$('belt').style.display = "none"
-            _$('txtNotice').style.display = "none";
-            _$('mainGUI').style.height = "39px";
+            _$('#belt').style.display = "none"
+            _$('#txtNotice').style.display = "none";
+            _$('#mainGUI').style.height = "39px";
             return false;
         }
 
         // Show belt icon.
-        _$('belt').style.display = "";
-        _$('txtNotice').style.display = "";
+        _$('#belt').style.display = "";
+        _$('#txtNotice').style.display = "";
 
         // Check belt toggle and update ui.
         if(data.beltOn) {
             // Active belt status.
-            _$('mainGUI').style.height = "39px";
-            _$('txtNotice').style.display = "none";
-            _$('belt').classList.add('active');
-            _$('belt').getElementsByTagName('p')[0].innerHTML = "ON";
-            _$('belt').getElementsByTagName('p')[0].style.paddingLeft = "7px";
+            _$('#mainGUI').style.height = "39px";
+            _$('#txtNotice').style.display = "none";
+            _$('#belt').classList.add('active');
+            _$('#belt').getElementsByTagName('p')[0].innerHTML = "ON";
+            _$('#belt').getElementsByTagName('p')[0].style.paddingLeft = "7px";
         } else {
             // Deactive belt status.
-            _$('mainGUI').style.height = "";
-            _$('txtNotice').style.display = "";
-            _$('belt').classList.remove('active');
-            _$('belt').getElementsByTagName('p')[0].innerHTML = "OFF";
-            _$('belt').getElementsByTagName('p')[0].style.paddingLeft = "";
+            _$('#mainGUI').style.height = "";
+            _$('#txtNotice').style.display = "";
+            _$('#belt').classList.remove('active');
+            _$('#belt').getElementsByTagName('p')[0].innerHTML = "OFF";
+            _$('#belt').getElementsByTagName('p')[0].style.paddingLeft = "";
         }
     },
     
@@ -85,24 +85,24 @@ _messageBomb = {
          */
 
         if(!data.hasCruise) {
-            _$('cruise').style.display = "none";
+            _$('#cruise').style.display = "none";
             return false;
         }
 
         // Show cruise icon.
-        _$('cruise').style.display = "";
+        _$('#cruise').style.display = "";
 
         // Check cruise toggle and update ui.
         if(data.cruiseStatus) {
             // Active cruise status.
-            _$('cruise').classList.add('active');
-            _$('cruise').getElementsByTagName('p')[0].innerHTML = "ON";
-            _$('cruise').getElementsByTagName('p')[0].style.paddingLeft = "10px";
+            _$('#cruise').classList.add('active');
+            _$('#cruise').getElementsByTagName('p')[0].innerHTML = "ON";
+            _$('#cruise').getElementsByTagName('p')[0].style.paddingLeft = "10px";
         } else {
             // Deactive cruise status.
-            _$('cruise').classList.remove('active');
-            _$('cruise').getElementsByTagName('p')[0].innerHTML = "OFF";
-            _$('cruise').getElementsByTagName('p')[0].style.paddingLeft = "";
+            _$('#cruise').classList.remove('active');
+            _$('#cruise').getElementsByTagName('p')[0].innerHTML = "OFF";
+            _$('#cruise').getElementsByTagName('p')[0].style.paddingLeft = "";
         }
     },
 
@@ -110,14 +110,14 @@ _messageBomb = {
         // Check if engine is started and update ui.
         if(isEngineOn) {
             // Active engine status.
-            _$('engine').classList.add('active');
-            _$('engine').getElementsByTagName('p')[0].innerHTML = "ON";
-            _$('engine').getElementsByTagName('p')[0].style.paddingLeft = "3px";
+            _$('#engine').classList.add('active');
+            _$('#engine').getElementsByTagName('p')[0].innerHTML = "ON";
+            _$('#engine').getElementsByTagName('p')[0].style.paddingLeft = "3px";
         } else {
             // Deactive engine status.
-            _$('engine').classList.remove('active');
-            _$('engine').getElementsByTagName('p')[0].innerHTML = "OFF";
-            _$('engine').getElementsByTagName('p')[0].style.paddingLeft = "";
+            _$('#engine').classList.remove('active');
+            _$('#engine').getElementsByTagName('p')[0].innerHTML = "OFF";
+            _$('#engine').getElementsByTagName('p')[0].style.paddingLeft = "";
         }
     }
 }

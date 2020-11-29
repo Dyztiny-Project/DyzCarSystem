@@ -17,11 +17,10 @@ Citizen.CreateThread(function()
         class = 0,
         hasBelt = true
     }
-
+    
     while true do
-        local player = GetPlayerPed(-1)
-
         (function()
+            local player = GetPlayerPed(-1)
             -- Check if player isn't in any vehicle then send nui message and skip other operation.
             local isShow = IsPedInAnyVehicle(player, false)
             if lastToggleState[1] ~= isShow then
@@ -41,6 +40,7 @@ Citizen.CreateThread(function()
 
 			local prevSpeed = currSpeed
             currSpeed = GetEntitySpeed(vehicle)
+            local position = GetEntityCoords(player)
 
             -- Check vehicle class if has belt or not
             local vehicleClass = GetVehicleClass(vehicle)
@@ -102,7 +102,7 @@ Citizen.CreateThread(function()
                 lastToggleState[3] = cruiseIsOn
                 triggerNUI("toggleCruise", {
                     hasCruise = isDriver,
-                    beltOn = seatbeltIsOn
+                    cruiseStatus = cruiseIsOn
                 })
             end
 
@@ -110,7 +110,7 @@ Citizen.CreateThread(function()
             -- Update engine state
             if lastToggleState[4] ~= engineOn then
                 lastToggleState[4] = engineOn
-                triggerNUI("toggleCruise", engineOn)
+                triggerNUI("toggleEngine", engineOn)
             end
 
             local EntityHealth = GetEntityHealth(vehicle)
@@ -155,7 +155,7 @@ Citizen.CreateThread(function()
                 speedUnit = Configs.isUseKM and 'KM' or 'M'
             })
 
-        end)
+        end)()
         Citizen.Wait(5)
     end
 end)
