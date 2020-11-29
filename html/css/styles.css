@@ -1,0 +1,356 @@
+:root {
+    --main-color: rgba(255, 255, 255, 0.9);
+    --pane-padding: 5px 42px;
+    --clr-violet: rgba(226, 129, 255, 0.9);
+    --clr-red: rgba(255, 0, 0, 0.9);
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    user-select: none;
+    overflow: hidden;
+}
+
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    font-family: sans-serif;
+    overflow: hidden;
+}
+
+#allELM {
+    display: none;
+    position: fixed;
+    width: 100%;
+    /*left: 350px;*/
+    bottom: 20px;
+    /*animation: fadeInUp .5s;*/
+}
+
+#mainGUI {
+    position: relative;
+    margin: 0 auto;
+    width: 340px;
+    height: 65px;
+    /*background-color: rgba(0, 0, 0, .3);*/
+}
+
+#txtNotice {
+    margin: 5px 0;
+    text-align: center;
+    color: rgba(255, 255, 255, .75);
+    filter: drop-shadow(0px 1px 2px black);
+    font-size: 14px;
+    font-weight: 700;
+    background-color: rgba(255, 0, 0, .4);
+}
+
+.container-flex {
+    display: flex;
+    height: 40px;
+}
+
+.container-flex .column {
+    display: block;
+    position: relative;
+    width: calc(100% / 2);
+    height: 100%;
+}
+
+#numSpeed {
+    display: inline;
+    margin: 0;
+    font-size: 35px;
+    color: var(--main-color);
+    text-align: right;
+}
+
+#carPanel {
+    display: none;
+    margin: 0 0 3px 0;
+    color: var(--main-color);
+    font-size: 13px;
+    font-weight: 700;
+    font-family: sans-serif;
+}
+
+.iconStats {
+    display: inline-block;
+    height: 100%;
+    filter: opacity(0.5);
+    color: var(--main-color);
+    transition-duration: .25s;
+}
+
+.iconStats.active {
+    filter: opacity(1);
+}
+
+.iconStats img {
+    margin: 5px;
+    width: 25px;
+}
+
+.iconStats p {
+    display: none;
+    margin: 0;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+#belt {
+    filter: opacity(1);
+    animation: twink 1s infinite;
+}
+
+#belt.active {
+    animation: none;
+}
+
+#belt p {
+    padding-left: 5px;
+    transition-duration: .15s;
+}
+
+#cruise p {
+    padding-left: 9px;
+    transition-duration: .15s;
+}
+
+.bottomStats {
+    display: flex;
+    color: var(--main-color);
+    font-weight: 700;
+    line-height: 25px;
+}
+
+.bottomStats span {
+    width: 60px;
+    height: 25px;
+    text-align: right;
+    transition-duration: .5s;
+}
+
+#gearStats {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#gearStats p {
+    margin: 0;
+}
+
+#gearStats span {
+    opacity: 0;
+    margin: 0 2px;
+    animation: bounceIn 1s forwards 1s;
+}
+
+#gearStats span.active {
+    color: rgba(255, 167, 0, 1);
+    text-shadow: 0 0 3px rgba(255, 227, 173, 0.7);
+}
+
+.progressContainer {
+    bottom: 10px;
+    width: 100%;
+}
+
+.fuelProcess {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.fuelProcess .yeet {
+    width: 0%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.6);
+    transition-duration: .25s;
+}
+
+.statusTxt {
+    height: 100%;
+}
+
+.statusTxt h1 {
+    margin: 0;
+    color: var(--clr-red);
+    font-size: 15px;
+}
+
+.bottom-flex {
+    position: relative;
+    display: flex;
+    margin: 0 auto 10px auto;
+    width: 340px;
+}
+
+.bottom-flex p {
+    display: none;
+    margin: 2px 10px 0 10px;
+    color: var(--main-color);
+    font-size: 15px;
+    font-weight: 700px;
+}
+
+.bottom-flex .column {
+    position: relative;
+    width: calc(100% / 2);
+    height: 100%;
+}
+
+#placeName {
+    margin: 3px auto 0 auto;
+    padding: 3px 5px;
+    width: 340px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 14px;
+    color: white;
+    background-color: rgba(0, 0, 0, .3);
+    background: linear-gradient(to right, transparent, rgba(0, 0, 0, .5), transparent) !important;
+    transform: translateY(-5px);
+}
+
+@keyframes twink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+			transform: translateY(100px);
+			opacity: 0;
+	}
+    to {
+			transform: translateY(0);
+			opacity: 1;
+	}
+}
+
+@keyframes fadeInDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+			transform: translateX(100px);
+			opacity: 0;
+	}
+    to {
+			transform: translateX(0);
+			opacity: 1;
+	}
+}
+
+@keyframes fadeInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeOutDown {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+
+@keyframes zoomIn {
+	0% {
+		opacity: 0;
+		transform: scale(.3);
+    }
+    
+    100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes bounceIn {
+	0% {
+		opacity: 0;
+		transform: scale(.4);
+	}
+	60% {
+		opacity: 1;
+		transform: scale(1.1);
+	}
+
+  100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes openWidthFrame {
+    from {
+        width: 50px;
+    }
+
+    to {
+        width: 100%;
+    }
+}
