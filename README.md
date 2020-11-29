@@ -19,7 +19,7 @@ So I decided to open source this HUD because I don't want to see people would ha
 
 ## Installation
 1. Add the DyzCarSystem folder to FiveM resources directory.
-2. Edit your server.cfg and add "start DyzCarSystem"
+2. Edit your server.cfg and add "ensure DyzCarSystem"
 
 ## License
 You can do anything with GPL-3.0 License.
