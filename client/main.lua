@@ -143,7 +143,7 @@ Citizen.CreateThread(function()
                 carFuel = math.floor(((GetVehicleFuelLevel(vehicle) / 100) * 100)),
 
                 -- Speed
-                speed = math.floor(currSpeed * 2.237),
+                speed = Configs.isUseKM and math.floor(currSpeed * 3.6) or math.floor(currSpeed * 2.236936),
 
                 -- Gear
                 gear = GetVehicleCurrentGear(vehicle),
