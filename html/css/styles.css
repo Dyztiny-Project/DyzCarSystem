@@ -28,9 +28,8 @@ html, body {
     display: none;
     position: fixed;
     width: 100%;
-    /*left: 350px;*/
     bottom: 20px;
-    /*animation: fadeInUp .5s;*/
+    animation: fadeInUp .5s;
 }
 
 #mainGUI {
@@ -38,7 +37,6 @@ html, body {
     margin: 0 auto;
     width: 340px;
     height: 65px;
-    /*background-color: rgba(0, 0, 0, .3);*/
 }
 
 #txtNotice {
@@ -274,6 +272,75 @@ html, body {
     to {
 			transform: translateY(0);
 			opacity: 1;
+	}
+}
+
+@keyframes fadeInDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+			transform: translateX(100px);
+			opacity: 0;
+	}
+    to {
+			transform: translateX(0);
+			opacity: 1;
+	}
+}
+
+@keyframes fadeInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeOutDown {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+
+@keyframes zoomIn {
+	0% {
+		opacity: 0;
+		transform: scale(.3);
+    }
+    
+    100% {
+		opacity: 1;
+		transform: scale(1);
 	}
 }
 
