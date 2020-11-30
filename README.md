@@ -1,5 +1,5 @@
 # DyzCarSystem
-This is a vehicle hud on the FiveM NUI that I implement while starting to write FiveM resource. It's use a lua code based from [FiveM-SimpleCarHUD](https://github.com/bepo13/FiveM-SimpleCarHUD) And clean up the source by [holfz](https://github.com/Holfz).
+This is a vehicle hud on the FiveM NUI that I implement while starting to write FiveM resource. It's use a lua code based from [FiveM-SimpleCarHUD](https://github.com/bepo13/FiveM-SimpleCarHUD) And clean up the source by [Holfz](https://github.com/Holfz).
 
 Actually, This resource is created for use on my own server. But there's some Thai people stole my code and sold it in their name without my permission.
 
