@@ -1,4 +1,4 @@
-fx_version 'adamant'
+fx_version 'bodacious'
 game 'gta5'
 
 files {
@@ -10,7 +10,7 @@ files {
     'html/img/cruise.png'
 }
 
-client_script {
+client_scripts {
 	'config_c.lua',
 	'client/function.lua',
     'client/main.lua'
