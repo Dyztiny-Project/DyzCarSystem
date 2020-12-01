@@ -1,16 +1,16 @@
 # DyzCarSystem
-This is a vehicle hud on the FiveM NUI that I implement while starting to write FiveM resource. It's use a lua code based from [FiveM-SimpleCarHUD](https://github.com/bepo13/FiveM-SimpleCarHUD) And clean up the source by [Holfz](https://github.com/Holfz).
+This is a vehicle hud on the FiveM NUI that I implement while starting to write the FiveM resource. It's a Lua code based on [FiveM-SimpleCarHUD](https://github.com/bepo13/FiveM-SimpleCarHUD) And cleans up the source by [Holfz](https://github.com/Holfz).
 
-Actually, This resource is created for use on my own server. But there's some Thai people stole my code and sold it in their name without my permission.
+This resource is created for use on my server. But some Thai people stole my code and sold it in their name without my permission.
 
-So I decided to open source this HUD because I don't want to see people would have to waste thier money to the thief anymore.
+So I decided to open source this HUD because I don't want to see people would have to waste their money to the thief anymore.
 
 ![UI](https://github.com/Dyztiny-Project/DyzCarSystem/blob/master/docs/UI.png?raw=true)
 
 ## Features
 * NUI for HUD
-* Speed in kmph / mph
-* Fuel progressbar
+* Speed in kph / mph
+* Fuel progress bar
 * Vehicle health's progress
 * Cruise control (CAPSLOCK key)
 * Seatbelt (B key)
@@ -20,7 +20,7 @@ So I decided to open source this HUD because I don't want to see people would ha
 * Zone name
 
 ## Installation
-1. Add the DyzCarSystem folder to FiveM resources directory.
+1. Add the DyzCarSystem folder to the FiveM resources directory.
 2. Edit your server.cfg and add "ensure DyzCarSystem"
 
 ## License
