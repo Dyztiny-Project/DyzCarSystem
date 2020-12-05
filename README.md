@@ -30,6 +30,7 @@ a) You're free to use no matter what purpose.
 b) You're free to view, edit the source code. But you "NEED" to disclose it (opensource).
 c) You're free to re-distribute the product under the name of contributor. (Dyztiny Project, Holfz)
 d) If you use or develop this resource. You "SHOULD" use this license (GPL-3.0 License)
+
 ## Credit
 * Brent_Peterson for SimpleCarHUD https://forum.cfx.re/t/release-simplecarhud-standalone-car-hud-for-speed-fuel-seatbelt-cruise-time-and-location-v1-30/451750
 * thatziv for z-Speedometer https://forum.fivem.net/t/release-minimal-speedometer/122035
