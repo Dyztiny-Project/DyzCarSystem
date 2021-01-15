@@ -135,6 +135,7 @@ Citizen.CreateThread(function()
 
             if (veh == 0) then
                 cruiseEnabled, seatbeltEnabled = false, false;
+                vehData['currSpd'] = 0.0
             else
                 local vehicleClass = GetVehicleClass(veh);
                 vehData['hasBelt'] = isVehicleClassHasBelt(vehicleClass);
