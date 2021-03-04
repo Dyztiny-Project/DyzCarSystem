@@ -12,6 +12,7 @@ So I decided to open source this HUD because I don't want to see people would ha
 * Speed in kph / mph
 * Fuel progress bar
 * Vehicle health's progress
+* Reduce speed according to engine health
 * Cruise control (CAPSLOCK key)
 * Seatbelt (B key)
 * Engine status
