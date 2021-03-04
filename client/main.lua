@@ -18,8 +18,8 @@ Citizen.CreateThread(function()
             local position = GetEntityCoords(playerPed);
 
             -- //NOTE: Copy from original (DyzCarSystem)
-            local EntityHealth = GetEntityHealth(currVeh);
-            local maxEntityHealth = GetEntityMaxHealth(currVeh)
+            local EntityHealth = GetEntityHealth(currVeh) - 100;
+            local maxEntityHealth = GetEntityMaxHealth(currVeh) - 100;
             local vehicleHealth = (EntityHealth / maxEntityHealth) * 100;
 
             SetPlayerVehicleDamageModifier(PlayerId(), 100);
