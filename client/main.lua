@@ -46,7 +46,7 @@ Citizen.CreateThread(function()
             triggerNUI("updateInfo", {
                 -- Vehicle Status
                 carHealth = vehicleHealth,
-                carFuel = math.floor(((GetVehicleFuelLevel(currVeh) / 100) * 100)),
+                carFuel = math.floor(GetVehicleFuelLevel(currVeh)),
 
                 -- Speed
                 speed = Config['useKM'] and math.floor(vehData['currSpd'] * 3.6) or math.floor(vehData['currSpd'] * 2.236936),
