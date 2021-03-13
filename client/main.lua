@@ -10,6 +10,9 @@ local vehData = {
     prevVelocity = {x = 0.0, y = 0.0, z = 0.0}, 
 };
 
+local inair = 0
+local cruiseSpeeding = 0
+
 local playerPed = nil;
 -- Thread
 Citizen.CreateThread(function()
@@ -98,7 +101,6 @@ Citizen.CreateThread(function()
                 DisableControlAction(0, 75);
             end
 
-            
             local isDriver = (GetPedInVehicleSeat(currVeh, -1) == playerPed);
             if (isDriver) then
                 if (IsControlJustReleased(0, Config['cruiseInput'])) then
@@ -106,10 +108,29 @@ Citizen.CreateThread(function()
                     triggerNUI("toggleCruise", { hasCruise = isDriver, cruiseStatus = cruiseEnabled })
 
                     vehData['cruiseSpd'] = vehData['currSpd'];
+                    cruiseSpeeding = vehData['cruiseSpd'];
                 end
 
                 local maxSpeed = cruiseEnabled and vehData['cruiseSpd'] or GetVehicleHandlingFloat(currVeh,"CHandlingData","fInitialDriveMaxFlatVel");
                 SetEntityMaxSpeed(currVeh, maxSpeed);
+
+                local roll = GetEntityRoll(currVeh)
+
+
+                if cruiseEnabled and not IsEntityInAir(currVeh) and inair >= 100 and not (roll > 75.0 or roll < -75.0) then
+                    if cruiseSpeeding < maxSpeed then
+                        cruiseSpeeding = cruiseSpeeding + 0.15
+                    end
+
+
+                    SetVehicleForwardSpeed(currVeh, cruiseSpeeding)
+                
+                elseif cruiseEnabled and not IsEntityInAir(currVeh) then
+                    inair = inair + 1
+                    cruiseSpeeding = vehData['currSpd'];
+                elseif cruiseEnabled then
+                    inair = 0
+                end
             else
                 cruiseEnabled = false;
             end
