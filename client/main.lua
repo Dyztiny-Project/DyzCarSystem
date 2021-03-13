@@ -98,6 +98,7 @@ Citizen.CreateThread(function()
                 DisableControlAction(0, 75);
             end
 
+            
             local isDriver = (GetPedInVehicleSeat(currVeh, -1) == playerPed);
             if (isDriver) then
                 if (IsControlJustReleased(0, Config['cruiseInput'])) then
