@@ -4,6 +4,7 @@ local cruiseEnabled, seatbeltEnabled = false, false;
 local vehData = {
     hasBelt = false,
     engineRunning = false,
+    hasCruise = false,
 
     currSpd = 0.0,
     cruiseSpd = 0.0,
@@ -102,6 +103,10 @@ Citizen.CreateThread(function()
 
             local isDriver = (GetPedInVehicleSeat(currVeh, -1) == playerPed);
             if (isDriver) then
+                if (isDriver ~= vehData['hasCruise']) then
+                    vehData['hasCruise']  = isDriver;
+                    triggerNUI("toggleCruise", { hasCruise =  vehData['hasCruise'], cruiseStatus = cruiseEnabled });
+                end
                 if (IsControlJustReleased(0, Config['cruiseInput'])) then
                     cruiseEnabled = not cruiseEnabled;
                     triggerNUI("toggleCruise", { hasCruise = isDriver, cruiseStatus = cruiseEnabled });
@@ -155,8 +160,9 @@ Citizen.CreateThread(function()
 
             if (veh == 0) then
                 cruiseEnabled, seatbeltEnabled = false, false;
+                vehData['hasCruise'] = false;
                 vehData['currSpd'] = 0.0;
-                triggerNUI("toggleCruise", { hasCruise = isDriver, cruiseStatus = cruiseEnabled });
+                triggerNUI("toggleCruise", { hasCruise =  vehData['hasCruise'], cruiseStatus = cruiseEnabled });
                 triggerNUI("toggleBelt", { hasBelt = vehData['hasBelt'], beltOn = seatbeltEnabled });
             else
                 local vehicleClass = GetVehicleClass(veh);
