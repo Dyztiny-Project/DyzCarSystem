@@ -153,6 +153,8 @@ Citizen.CreateThread(function()
     while true do
         playerPed = PlayerPedId();
         local veh = GetVehiclePedIsIn(playerPed, false);
+        local placeNameEnabled = Config['placeNameEnabled'];
+        triggerNUI("placeNameEnabled", { isEnabled = placeNameEnabled});
 
         if (veh ~= currVeh) then
             currVeh = veh;

@@ -6,6 +6,13 @@ const _$ = (query) => {
 },
 _messageBomb = {
 
+    placeNameEnabled: (data) => {
+        if(!data.isEnabled){
+            $('#allELM').css('bottom', '0px');
+            $('#placeName').hide();
+        }
+    },
+
     toggleUI: (isShow) => {
         // Check UI toggle status.
         if(isShow) {

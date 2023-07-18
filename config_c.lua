@@ -1,5 +1,7 @@
 Config = {};
 
+Config['placeNameEnabled'] = false; -- Toogle Location Enabled/Disabled
+
 Config['useKM'] = false; -- Set true to use KM/H unit
 
 Config['seatbeltInput'] = 29; -- Toggle seatbelt on/off with B
