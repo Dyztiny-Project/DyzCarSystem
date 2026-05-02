@@ -13,3 +13,10 @@ function triggerNUI(eventName, payload)
         payload = payload
     })
 end
+
+function isVehicleClassShowHUD(class)
+    if (class == nil) then return false end
+    local enabled = Config['HUDVehicleClasses'][class];
+    if (enabled == nil) then return true end
+    return enabled;
+end

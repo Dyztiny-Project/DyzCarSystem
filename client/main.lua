@@ -5,10 +5,11 @@ local vehData = {
     hasBelt = false,
     engineRunning = false,
     hasCruise = false,
+    showHUD = true,
 
     currSpd = 0.0,
     cruiseSpd = 0.0,
-    prevVelocity = {x = 0.0, y = 0.0, z = 0.0}, 
+    prevVelocity = {x = 0.0, y = 0.0, z = 0.0},
 };
 
 local inair = 0
@@ -18,21 +19,28 @@ local playerPed = nil;
 -- Thread
 Citizen.CreateThread(function()
     while true do
-        if (currVeh ~= 0) then
+        if (currVeh ~= 0 and vehData['showHUD']) then
             local position = GetEntityCoords(playerPed);
 
             -- //NOTE: Copy from original (DyzCarSystem)
             local EntityHealth = GetEntityHealth(currVeh);
             local maxEntityHealth = GetEntityMaxHealth(currVeh);
-            local vehicleHealth = (EntityHealth / maxEntityHealth) * 100;
+            local engineHealth = GetVehicleEngineHealth(currVeh);
+
+            -- Combine body and engine health so the bar can actually reach 0
+            -- when the vehicle is dead (issue #2). GetVehicleEngineHealth can
+            -- return negatives when destroyed, so clamp to [0, 100].
+            local bodyPct = (EntityHealth / maxEntityHealth) * 100;
+            local enginePct = (engineHealth / 1000.0) * 100;
+            local vehicleHealth = math.max(0, math.min(bodyPct, enginePct));
 
             SetPlayerVehicleDamageModifier(PlayerId(), 100);
             -- SetVehicleEngineHealth(currVeh, (EntityHealth + 0.00) * 1.5); -- //Note: Comment as suggested by #issuecomment-797556881
 
-            local maxSpeed = 100 - ((100 - ((GetVehicleEngineHealth(currVeh) / maxEntityHealth) * 100)) / 1.5);
-            if (vehicleHealth <= 30) then 
+            local maxSpeed = 100 - ((100 - ((engineHealth / maxEntityHealth) * 100)) / 1.5);
+            if (vehicleHealth <= 30) then
                 SetVehicleMaxSpeed(currVeh, maxSpeed);
-            else 
+            else
                 SetVehicleMaxSpeed(currVeh, 200.0);
             end
 
@@ -72,7 +80,7 @@ end)
 
 Citizen.CreateThread(function()
     while true do
-        if (currVeh ~= 0) then
+        if (currVeh ~= 0 and vehData['showHUD']) then
             local position = GetEntityCoords(playerPed);
 
             -- Seat Belt
@@ -158,9 +166,10 @@ Citizen.CreateThread(function()
 
         if (veh ~= currVeh) then
             currVeh = veh;
-            triggerNUI("toggleUI", veh ~= 0);
 
             if (veh == 0) then
+                vehData['showHUD'] = false;
+                triggerNUI("toggleUI", false);
                 cruiseEnabled, seatbeltEnabled = false, false;
                 vehData['hasCruise'] = false;
                 vehData['currSpd'] = 0.0;
@@ -169,6 +178,9 @@ Citizen.CreateThread(function()
             else
                 local vehicleClass = GetVehicleClass(veh);
                 vehData['hasBelt'] = isVehicleClassHasBelt(vehicleClass);
+                vehData['showHUD'] = isVehicleClassShowHUD(vehicleClass);
+                triggerNUI("setLabels", { seatbeltLabel = Config['seatbeltLabel'] });
+                triggerNUI("toggleUI", vehData['showHUD']);
             end
         end
 
