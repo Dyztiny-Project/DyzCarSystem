@@ -10,6 +10,25 @@ Config['seatbeltEjectAccel'] = 100.0; -- Acceleration threshold to eject player 
 
 Config['cruiseInput'] = 137; -- Toggle cruise on/off with CAPSLOCK or A button (controller)
 
+-- HUD: text shown above the gauges prompting the seatbelt key. HTML allowed.
+-- Update this if you rebind Config['seatbeltInput'] (issue #8).
+Config['seatbeltLabel'] = 'PRESS (<span style="color: rgba(255, 255, 255, 1)">B</span>) TO USE THE SEATBELT.';
+
+-- Vehicle classes that should display the HUD and have engine-health speed
+-- limiting applied. Aircraft and boats are excluded so they are not capped to
+-- ground-vehicle handling speeds (issues #5, #15).
+Config['HUDVehicleClasses'] = {
+    [0]  = true,  [1]  = true,  [2]  = true,  [3]  = true,
+    [4]  = true,  [5]  = true,  [6]  = true,  [7]  = true,
+    [8]  = true,  [9]  = true,  [10] = true,  [11] = true,
+    [12] = true,  [13] = true,
+    [14] = false, -- Boats
+    [15] = false, -- Helicopters
+    [16] = false, -- Planes
+    [17] = true,  [18] = true,  [19] = true,  [20] = true,
+    [21] = true,  [22] = true,
+};
+
 Config['BeltClass'] = {
     [0] = true,
     [1] = true,

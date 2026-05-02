@@ -100,6 +100,13 @@ _messageBomb = {
             _$('#cruise').classList.remove('active'); // Deactive cruise status.
     },
 
+    setLabels: (data) => {
+        // Update HUD strings that depend on Config (e.g. seatbelt key prompt).
+        if (data && typeof data.seatbeltLabel === 'string') {
+            _$('#txtNotice').innerHTML = data.seatbeltLabel;
+        }
+    },
+
     toggleEngine: (isEngineOn) => {
         // Check if engine is started and update ui.
         if(isEngineOn)
